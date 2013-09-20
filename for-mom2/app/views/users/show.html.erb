@@ -9,8 +9,18 @@
   <% @user.schools.each do |school| %>
     <%= link_to school.name, school_path(school) %>
   <% end %>
-  <%= @user.school_list %>
 </p>
+
+<p> Add a school </p>
+<%= form_for(@user, html: {multipart:true}) do |f| %>
+  <p>
+    <%= f.label :school_list %><br />
+    <%= f.text_field :school_list %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
 
 <br/>
 

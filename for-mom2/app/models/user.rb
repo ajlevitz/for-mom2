@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :applying
-  has_many :schools, through: :applying
+  has_many :applyings
+  has_many :schools, through: :applyings
 
   def school_list
     self.schools.collect do |school|

@@ -18,8 +18,15 @@ class SchoolsController < ApplicationController
     @school = School.find(params[:id])
   end
 
+  def destroy
+    @school = School.find(params[:id])
+    @school.destroy
+
+    redirect_to schools_path
+  end  
+
 private
   def school_params
-    params.required(:school).permit(:name)
+    params.required(:school).permit(:name, :id)
   end
 end
