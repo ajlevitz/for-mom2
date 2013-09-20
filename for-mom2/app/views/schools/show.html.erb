@@ -1,5 +1,6 @@
-<h1>students applying to <%= @school.name %>:</h1>
+<h1><%= @school.name %></h1>
 
+<h2>Students applying here:</h2>
 <% if @school.users.length > 0 %>
   <ul>
     <% @school.users.each do |user| %>
@@ -9,5 +10,24 @@
 <% else %>
   <p>
     No one is applying here yet!
+  </p>
+<% end %>
+
+<h2>Essay prompts</h2>
+<% @school.prompts.each do |prompt| %>
+  <p>
+     <%= prompt.question %>
+     <%= link_to 'Response >>', 'prompts/'+prompt.id.to_s %>
+  </p>
+<% end %>
+
+<h2>Add a prompt:</h2>
+<%= form_for([@school, @school.prompts.build]) do |f| %>
+  <p>
+    <%= f.label :question %><br />
+    <%= f.text_field :question %>
+  </p>
+  <p>
+    <%= f.submit %>
   </p>
 <% end %>
