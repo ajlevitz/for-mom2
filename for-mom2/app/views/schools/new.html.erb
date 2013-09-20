@@ -1,0 +1,13 @@
+<%= form_for(@school, html: {multipart:true}) do |f| %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to "See all schools", schools_path, data: {confirm: "Are you sure you want to go back?"} %>

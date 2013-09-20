@@ -3,9 +3,10 @@
 <ul id="schools">
   <% @schools.each do |school| %>
     <li>
-      <%= link_to school.name, school_path(school) %>, <%= link_to "Delete", school_path(school), method: :destroy, data: {confirm: "Are you sure you want to delete this school?"} %>
+      <%= link_to school.name, school_path(school) %>
     </li>
   <% end %>
 </ul>
 
-<%= link_to "Add a New User", new_school_path %>
+<%= link_to "Add a New School", new_school_path %> <br/>
+<%= link_to "See all students", users_path %>

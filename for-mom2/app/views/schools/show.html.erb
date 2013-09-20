@@ -1,7 +1,13 @@
-<h1>students applying here:</h1>
+<h1>students applying to <%= @school.name %>:</h1>
 
-<p>
-  <% @school.users.each do |user| %>
-    <%= link_to user.name, user_path(user) %>
-  <% end %>
-</p>
+<% if @school.users.length > 0 %>
+  <p>
+    <% @school.users.each do |user| %>
+      <%= link_to user.name, user_path(user) %>
+    <% end %>
+  </p>
+<% else %>
+  <p>
+    No one is applying here yet!
+  </p>
+<% end %>
