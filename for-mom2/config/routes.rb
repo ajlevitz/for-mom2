@@ -1,8 +1,11 @@
 ForMom2::Application.routes.draw do
+  get "schools/index"
   get "users/index"
+  
   root 'users#index'
 
   resources :users 
+  resources :schools
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

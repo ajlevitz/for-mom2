@@ -4,6 +4,13 @@
 <%= @user.grad_year %> <br/>
 <%= @user.high_school %> <br/>
 
+<p>
+  Schools:
+  <% @user.schools.each do |school| %>
+    <%= link_to school.name, school_path(school) %>, <%# link_to "X", school_path(@school), method: :delete, data: {confirm: "Are you sure you don't want to apply to this school?"} %> |
+  <% end %>
+</p>
+
 <br/>
 
 <%= link_to "See all users", users_path %>
