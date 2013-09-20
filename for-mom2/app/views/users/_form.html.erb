@@ -1,0 +1,24 @@
+<%= form_for(@user, html: {multipart:true}) do |f| %>
+  <ul>
+  <% @user.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+ 
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :grad_year %><br />
+    <%= f.text_field :grad_year %>
+  </p>
+  <p>
+    <%= f.label :high_school %><br />
+    <%= f.text_field :high_school %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
