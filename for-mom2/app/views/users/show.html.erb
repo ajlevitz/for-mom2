@@ -6,9 +6,11 @@
 
 <p>
   Schools:
-  <% @user.schools.each do |school| %>
-    <%= link_to school.name, school_path(school) %>
-  <% end %>
+  <ul>
+    <% @user.schools.each do |school| %>
+      <li><%= link_to school.name, school_path(school) %></li>
+    <% end %>
+  </ul>
 </p>
 
 <p> Add a school </p>

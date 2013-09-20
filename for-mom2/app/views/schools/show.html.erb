@@ -1,11 +1,11 @@
 <h1>students applying to <%= @school.name %>:</h1>
 
 <% if @school.users.length > 0 %>
-  <p>
+  <ul>
     <% @school.users.each do |user| %>
-      <%= link_to user.name, user_path(user) %>
+      <li><%= link_to user.name, user_path(user) %></li>
     <% end %>
-  </p>
+  </ul>
 <% else %>
   <p>
     No one is applying here yet!
