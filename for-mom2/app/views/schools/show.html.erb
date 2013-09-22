@@ -8,24 +8,27 @@
     <% end %>
   </ul>
 <% else %>
-  <p>
-    No one is applying here yet!
-  </p>
+  <p><i>No one has yet chosen to apply here</i></p>
+  <p><%= link_to "See all students", users_path %></p>
 <% end %>
 
 <h2>Essay prompts</h2>
+<% if @school.prompts.length == 0 %>
+  <p><i>You haven't added any prompts for this school</i></p>
+<% end %>
+
 <% @school.prompts.each do |prompt| %>
   <p>
      <%= prompt.question %>
-     <%= link_to 'Response >>', @school.id.to_s+'/prompts/'+prompt.id.to_s %>
+     <%= link_to 'Responses >>', '/schools/'+@school.id.to_s+'/prompts/'+prompt.id.to_s %>
   </p>
+  </br>
 <% end %>
 
-<h2>Add a prompt:</h2>
 <%= form_for([@school, @school.prompts.build]) do |f| %>
   <p>
-    <%= f.label :question %><br />
-    <%= f.text_field :question %>
+    <%= f.label 'Add a prompt:' %><br />
+    <%= f.text_area :question %>
   </p>
   <p>
     <%= f.submit %>

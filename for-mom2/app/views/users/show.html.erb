@@ -1,19 +1,14 @@
-<p>Profile Info:<p>
+<h1><%= @user.name %></h1>
+<h3><%= @user.high_school %>, class of <%= @user.grad_year %></h3>
 
-<%= @user.name %> <br/>
-<%= @user.grad_year %> <br/>
-<%= @user.high_school %> <br/>
-
-<p>
-  Schools:
+<h2>Schools:</h2>
   <ul>
     <% @user.schools.each do |school| %>
       <li><%= link_to school.name, school_path(school) %></li>
     <% end %>
   </ul>
-</p>
 
-<p> Add a school </p>
+<h2> Add a school </h2>
 <%= form_for(@user, html: {multipart:true}) do |f| %>
   <p>
     <%= f.label :school_list %><br />

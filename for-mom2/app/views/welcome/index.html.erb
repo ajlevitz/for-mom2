@@ -1,0 +1,45 @@
+<h1>Welcome to Randi's Get-Into-College Consulting!</h1>
+
+<hr>
+
+<h2>All users</h2>
+
+  <table style="width:450px">
+    <tr>
+      <th>Student Name</th>
+      <th>Info</th>
+      <th># of schools</th>
+    </tr>
+
+    <% User.all.each do |user| %>
+      <tr>
+        <td><%= link_to user.name, user_path(user) %></td>
+        <td><%= user.schools.length %></td>
+        <td><%= user.high_school%>, <%= user.grad_year %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  </br>
+  <%= link_to "Create a New User", new_user_path %>
+
+<hr>
+
+<h2>All schools</h2>
+
+  <table style="width:450px">
+    <tr>
+      <th>University Name</th>
+      <th># of students</th>
+    </tr>
+
+    <% School.all.each do |school| %>
+      <tr>
+        <td><%= link_to school.name, school_path(school) %></td>
+        <td><%= school.users.length %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  </br>
+  <%= link_to "Add a new school", new_school_path %>

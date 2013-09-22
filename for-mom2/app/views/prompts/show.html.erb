@@ -1,9 +1,14 @@
 <h1><%= @prompt.question %></h1>
 
 <h2>View responses</h2>
-<% @prompt.responses.each do |response| %>
-  <p><strong><%= response.submitter %></strong></p>
-  <p><%= response.comments %></p>
+<% if @prompt.responses.length == 0 %>
+  <p><i>There hasn't yet been a response to this question</i></p>
+<% else %>
+  <% @prompt.responses.each do |response| %>
+    <p><strong><%= response.submitter %></strong></p>
+    <p><%= response.comments %></p>
+    <p><%= response.created_at %></p>
+  <% end %>
 <% end %>
 
 <h2>Add a response</h2>
@@ -29,3 +34,5 @@
     <%= f.submit %>
   </p>
 <% end %>
+
+<%= link_to "View info for #{@prompt.school.name}", school_path(@prompt.school.id) %>

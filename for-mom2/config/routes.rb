@@ -1,8 +1,9 @@
 ForMom2::Application.routes.draw do
+  get "welcome/index"
   get "schools/index"
   get "users/index"
   
-  root 'users#index'
+  root 'welcome#index'
 
   resources :users 
   resources :schools do

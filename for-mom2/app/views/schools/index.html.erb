@@ -1,12 +1,19 @@
 <h1>All schools</h1>
 
-<ul id="schools">
-  <% @schools.each do |school| %>
-    <li>
-      <%= link_to school.name, school_path(school) %>, <%= link_to "X", school_path(school), method: :delete, data: {confirm: "Are you sure you want to go back?"} %>
-    </li>
-  <% end %>
-</ul>
+  <table style="width:450px">
+    <tr>
+      <th>University Name</th>
+      <th># of students</th>
+    </tr>
 
-<%= link_to "Add a New School", new_school_path %> <br/>
+    <% School.all.each do |school| %>
+      <tr>
+        <td><%= link_to school.name, school_path(school) %></td>
+        <td><%= school.users.length %></td>
+      </tr>
+    <% end %>
+  </table>
+
+<br/>
+<%= link_to "Add a New School", new_school_path %> <br/><br/>
 <%= link_to "See all students", users_path %>
