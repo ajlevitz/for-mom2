@@ -1,3 +1,31 @@
-<%= @prompt.question %>
+<h1><%= @prompt.question %></h1>
 
-<%= @prompt.id %>
+<h2>View responses</h2>
+<% @prompt.responses.each do |response| %>
+  <p><strong><%= response.submitter %></strong></p>
+  <p><%= response.comments %></p>
+<% end %>
+
+<h2>Add a response</h2>
+<%= form_for(Response.new) do |f| %>
+  <p>
+    <%= f.label :submitter %><br />
+    <%= f.text_field :submitter %>
+  </p>
+  <p>
+    <%= f.label :comments %><br />
+    <%= f.text_field :comments %>
+  </p>
+  <p>
+    <%= f.label :school_id %><br />
+    <%= f.text_field :school_id, :value => @school_id %>
+  </p>
+  <p>
+    <%= f.label :prompt_id %><br />
+    <%= f.text_field :prompt_id, :value => @prompt_id %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

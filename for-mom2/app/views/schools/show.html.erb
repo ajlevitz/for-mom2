@@ -17,7 +17,7 @@
 <% @school.prompts.each do |prompt| %>
   <p>
      <%= prompt.question %>
-     <%= link_to 'Response >>', 'prompts/'+prompt.id.to_s %>
+     <%= link_to 'Response >>', @school.id.to_s+'/prompts/'+prompt.id.to_s %>
   </p>
 <% end %>
 

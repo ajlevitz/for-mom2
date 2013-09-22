@@ -8,7 +8,10 @@ class PromptsController < ApplicationController
 
   def show
     @school = School.find(params[:school_id])
+    @school_id = @school.id
+
     @prompt = @school.prompts.find(params[:id])
+    @prompt_id = @prompt.id
   end
 
 private
