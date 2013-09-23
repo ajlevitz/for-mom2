@@ -7,7 +7,7 @@ class ResponsesController < ApplicationController
     @response = Response.new(response_params)
     @response.save
 
-    redirect_to '/schools/'+@response.school_id.to_s+'/prompts/'+@response.prompt_id.to_s
+    redirect_to school_prompt_path(school_id: @response.school_id, id: @response.prompt)
   end
 
   def show
